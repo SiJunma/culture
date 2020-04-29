@@ -110,8 +110,10 @@ h3 {
 .header {
     margin-top: 60px;
     margin-bottom: 44px;
+    padding: 26px;
 
     &__logo {
+        margin: 0;
         margin-bottom: 46px;
     }
 }
@@ -305,5 +307,9 @@ h3 {
     &__nav {
         border-bottom: 1px solid #9A9A9A;
         padding-bottom: 46px;
+    }
+
+    &__logo {
+        font-size: 28px;
     }
 }
