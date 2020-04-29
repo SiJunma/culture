@@ -1,0 +1,309 @@
+$footerColor: #575757;
+
+@mixin list-box ($direction:row) {
+    display: flex;
+    flex-direction: $direction;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin links ($color:inherit, $hover:#FF7931) {
+    color: $color;
+    text-decoration: none;
+
+    &:hover {
+        color: $hover;
+    }
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+    font-size: 14px;
+}
+
+%titles {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    margin: 0;
+}
+
+h3 {
+    @extend %titles;
+    font-size: 23px;
+    line-height: 31px;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1170px;
+}
+
+.section-title {
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    margin: 0;
+}
+
+.more-link {
+    display: inline-block;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 2px;
+    background-color: #FF7931;
+    padding: 11px 30px;
+    cursor: pointer;
+
+    &:after {
+        content: '';
+        display: inline-block;
+        background-image: url('../img/arrow.svg');
+        background-repeat: no-repeat;
+        width: 24px;
+        height: 25px;
+        vertical-align: middle;
+        margin-left: 7px;
+    }
+}
+
+.social-box {
+    @include list-box;
+    justify-content: center;
+
+    &__item:not(:first-child) {
+        margin-left: 14px;
+    }
+
+    & .social-link {
+        display: block;
+        width: 47px;
+        height: 47px;
+        text-decoration: none;
+        background-color: #fff;
+        color: $footerColor;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position: center;
+
+        &[aria-label="Instagram"] {
+            background-image: url('../img/insta.svg');
+        }
+
+        &[aria-label="Facebook"] {
+            background-image: url('../img/facebook.svg');
+        }
+
+        &[aria-label="Twitter"] {
+            background-image: url('../img/twitter.svg');
+        }
+    }
+}
+
+.header {
+    margin-top: 60px;
+    margin-bottom: 44px;
+
+    &__logo {
+        margin-bottom: 46px;
+    }
+}
+
+.main {
+    &-article {
+        background-image: url('../img/header-bg.jpg');
+        background-position: top 70% center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        color: #FFFFFF;
+        padding-top: 47px;
+        padding-bottom: 47px;
+        margin-bottom: 46px;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 55px;
+            height: 55px;
+            margin: 0 auto;
+            background-image: url('../img/img.svg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            margin-bottom: 30px;
+        }
+
+        &__title {
+            font-weight: normal;
+            font-size: 72px;
+            line-height: 84px;
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0;
+            margin-bottom: 2em;
+        }
+
+        &__des {
+            max-width: 450px;
+            text-align: center;
+            margin: 0 auto;
+            line-height: 150%;
+        }
+
+        &__link {
+            @include links(#fff,#fff);
+        }
+    }
+
+    &-logo {
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        font-size: 35px;
+        letter-spacing: 1px;
+    }
+
+    &-nav {
+        margin-bottom: 46px;
+        margin-top: 32px;
+    }
+
+    &-nav__menu-box {
+        @include list-box;
+        justify-content: space-between;
+    
+        &__item .menu-link {
+            @include links;
+            letter-spacing: 2px;
+            font-size: 15px;
+            line-height: 18px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.overview {
+    padding-bottom: 30px;
+
+    & .section-title {
+        margin-bottom: 20px;
+    }
+
+    &__list-box {
+        @include list-box;
+        justify-content: space-between;
+    }
+
+    &__list-item {
+        flex-basis: 33%;
+        flex-shrink: 1;
+        padding-bottom: 20px;
+
+        &__img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        &__title {
+            margin-bottom: 10px;
+        }
+
+        &__desc {
+            line-height: 150%;
+            margin: 0;
+        }
+    }
+
+    &__list-item:not(:first-child) {
+        margin-left: 30px;
+    }
+
+    &__article-link {
+        @include links;
+    }
+}
+
+.tickets {
+    padding: 34px;
+    text-align: center;
+    background-color: #F7F7F7;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 0;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        clip-path: circle(350px);
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    & .section-title {
+        margin-bottom: 35px;
+    }
+
+    &__list-box {
+        @include list-box(column);
+        align-items: center;
+        padding-bottom: 20px;
+    }
+
+    &__list-item {
+        max-width: 370px;
+        margin-bottom: 24px;
+
+        &::after {
+            content: '';
+            display: block;
+            height: 1px;
+            max-width: 100px;
+            background-color: #EBEBEB;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        &:last-child::after {
+            display: none;
+        }
+
+        & .ticket-link {
+            @include links;
+        }
+
+        &__title {
+            margin-bottom: 10px;
+        }
+
+        &__desc {
+            line-height: 150%;
+            margin: 0;
+        }
+    }
+}
+
+.footer {
+    background-color: $footerColor;
+    color: #fff;
+    padding: 26px;
+
+    &__nav {
+        border-bottom: 1px solid #9A9A9A;
+        padding-bottom: 46px;
+    }
+}
